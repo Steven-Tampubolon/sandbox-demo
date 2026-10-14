@@ -19,3 +19,6 @@ def modulo(a, b):
     if b == 0:
         raise ValueError("Pembagian dengan nol")
     return a % b
+
+def square(a):
+    return a * a

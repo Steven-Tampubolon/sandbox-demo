@@ -1,6 +1,6 @@
 import pytest
 
-from calc import add, subtract, multiply, divide, power, modulo
+from calc import add, subtract, multiply, divide, power, modulo, square
 
 def test_add():
     assert add(2, 3) == 5
@@ -54,3 +54,21 @@ def test_modulo_negative_dividend():
 def test_modulo_by_zero():
     with pytest.raises(ValueError, match="Pembagian dengan nol"):
         modulo(10, 0)
+
+def test_square():
+    assert square(4) == 16
+
+def test_square_zero():
+    assert square(0) == 0
+
+def test_square_one():
+    assert square(1) == 1
+
+def test_square_negative():
+    assert square(-3) == 9
+
+def test_square_negative_fraction():
+    assert square(-0.5) == 0.25
+
+def test_square_fraction():
+    assert square(2.5) == 6.25
