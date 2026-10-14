@@ -1,6 +1,6 @@
 import pytest
 
-from calc import add, subtract, multiply, divide, power, modulo, square
+from calc import add, subtract, multiply, divide, power, modulo, square, cube
 
 def test_add():
     assert add(2, 3) == 5
@@ -72,3 +72,21 @@ def test_square_negative_fraction():
 
 def test_square_fraction():
     assert square(2.5) == 6.25
+
+def test_cube():
+    assert cube(2) == 8
+
+def test_cube_zero():
+    assert cube(0) == 0
+
+def test_cube_one():
+    assert cube(1) == 1
+
+def test_cube_negative():
+    assert cube(-3) == -27
+
+def test_cube_negative_fraction():
+    assert cube(-0.5) == -0.125
+
+def test_cube_fraction():
+    assert cube(2.5) == 15.625
