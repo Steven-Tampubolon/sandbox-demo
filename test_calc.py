@@ -1,6 +1,6 @@
 import pytest
 
-from calc import add, subtract, multiply, divide, power
+from calc import add, subtract, multiply, divide, power, modulo
 
 def test_add():
     assert add(2, 3) == 5
@@ -38,3 +38,19 @@ def test_power_negative_exponent():
 
 def test_power_one():
     assert power(7, 1) == 7
+
+def test_modulo():
+    assert modulo(10, 3) == 1
+
+def test_modulo_exact_division():
+    assert modulo(9, 3) == 0
+
+def test_modulo_larger_divisor():
+    assert modulo(3, 10) == 3
+
+def test_modulo_negative_dividend():
+    assert modulo(-7, 3) == 2
+
+def test_modulo_by_zero():
+    with pytest.raises(ValueError, match="Pembagian dengan nol"):
+        modulo(10, 0)
