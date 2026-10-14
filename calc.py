@@ -24,4 +24,5 @@ def square(a):
     return a * a
 
 def average(a, b):
+    """Mengembalikan rata-rata dari a dan b, yaitu (a + b) / 2."""
     return (a + b) / 2
