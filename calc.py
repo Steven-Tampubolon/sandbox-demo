@@ -14,3 +14,8 @@ def divide(a, b):
 
 def power(a, b):
     return a ** b
+
+def modulo(a, b):
+    if b == 0:
+        raise ValueError("Pembagian dengan nol")
+    return a % b

@@ -9,6 +9,7 @@ Kalkulator sederhana berbasis Python (lihat `calc.py`).
 - `multiply(a, b)` — mengembalikan perkalian `a * b`.
 - `divide(a, b)` — mengembalikan hasil pembagian `a / b`. Melempar `ValueError` dengan pesan "Pembagian dengan nol" jika `b` bernilai 0.
 - `power(a, b)` — mengembalikan hasil `a` pangkat `b`.
+- `modulo(a, b)` — mengembalikan sisa bagi `a % b`. Melempar `ValueError` dengan pesan "Pembagian dengan nol" jika `b` bernilai 0.
 
 ## Menjalankan tes
 
