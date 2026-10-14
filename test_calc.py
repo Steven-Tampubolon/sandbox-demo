@@ -1,6 +1,7 @@
 import pytest
 
 from calc import add, subtract, multiply, divide, power, modulo, square
+from calc import average
 
 def test_add():
     assert add(2, 3) == 5
@@ -72,3 +73,27 @@ def test_square_negative_fraction():
 
 def test_square_fraction():
     assert square(2.5) == 6.25
+
+def test_average():
+    assert average(2, 4) == 3
+
+def test_average_same_numbers():
+    assert average(5, 5) == 5
+
+def test_average_fraction_result():
+    assert average(1, 2) == 1.5
+
+def test_average_negative_operand():
+    assert average(-4, 2) == -1
+
+def test_average_both_negative():
+    assert average(-3, -5) == -4
+
+def test_average_cancel_out():
+    assert average(-2, 2) == 0
+
+def test_average_zero():
+    assert average(0, 0) == 0
+
+def test_average_floats():
+    assert average(2.5, 3.5) == 3.0

@@ -22,3 +22,6 @@ def modulo(a, b):
 
 def square(a):
     return a * a
+
+def average(a, b):
+    return (a + b) / 2
