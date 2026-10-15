@@ -26,3 +26,13 @@ def square(a):
 def average(a, b):
     """Mengembalikan rata-rata dari a dan b, yaitu (a + b) / 2."""
     return (a + b) / 2
+
+def parse_number(teks):
+    try:
+        return int(teks)
+    except (ValueError, TypeError):
+        pass
+    try:
+        return float(teks)
+    except (ValueError, TypeError):
+        raise ValueError("Bukan angka")

@@ -2,6 +2,7 @@ import pytest
 
 from calc import add, subtract, multiply, divide, power, modulo, square
 from calc import average
+from calc import parse_number
 
 def test_add():
     assert add(2, 3) == 5
@@ -97,3 +98,33 @@ def test_average_zero():
 
 def test_average_floats():
     assert average(2.5, 3.5) == 3.0
+
+def test_parse_number_integer():
+    assert parse_number("42") == 42
+    assert isinstance(parse_number("42"), int)
+
+def test_parse_number_decimal():
+    assert parse_number("3.5") == 3.5
+    assert isinstance(parse_number("3.5"), float)
+
+def test_parse_number_negative_int():
+    assert parse_number("-7") == -7
+
+def test_parse_number_negative_decimal():
+    assert parse_number("-2.5") == -2.5
+
+def test_parse_number_invalid_text():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("abc")
+
+def test_parse_number_partial_digits():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("12abc")
+
+def test_parse_number_empty_string():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("")
+
+def test_parse_number_non_string():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number(None)
