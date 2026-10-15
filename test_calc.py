@@ -128,3 +128,31 @@ def test_parse_number_empty_string():
 def test_parse_number_non_string():
     with pytest.raises(ValueError, match="Bukan angka"):
         parse_number(None)
+
+def test_parse_number_nan():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("nan")
+
+def test_parse_number_nan_uppercase():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("NaN")
+
+def test_parse_number_inf():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("inf")
+
+def test_parse_number_inf_uppercase():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("INF")
+
+def test_parse_number_negative_inf():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("-inf")
+
+def test_parse_number_infinity():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("infinity")
+
+def test_parse_number_infinity_mixed_case():
+    with pytest.raises(ValueError, match="Bukan angka"):
+        parse_number("Infinity")

@@ -1,3 +1,5 @@
+import math
+
 def add(a, b):
     return a + b
 
@@ -33,6 +35,9 @@ def parse_number(teks):
     except (ValueError, TypeError):
         pass
     try:
-        return float(teks)
+        hasil = float(teks)
     except (ValueError, TypeError):
         raise ValueError("Bukan angka")
+    if not math.isfinite(hasil):
+        raise ValueError("Bukan angka")
+    return hasil
