@@ -164,6 +164,12 @@ def test_percentage():
 def test_percentage_decimal():
     assert percentage(1, 3) == pytest.approx(33.33333333333333)
 
+def test_percentage_zero_part():
+    assert percentage(0, 50) == 0.0
+
+def test_percentage_negative_part():
+    assert percentage(-10, 50) == -20.0
+
 def test_percentage_zero_total():
     with pytest.raises(ValueError, match="Pembagian dengan nol"):
         percentage(10, 0)
