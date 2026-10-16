@@ -3,6 +3,7 @@ import pytest
 from calc import add, subtract, multiply, divide, power, modulo, square
 from calc import average
 from calc import parse_number
+from calc import percentage
 
 def test_add():
     assert add(2, 3) == 5
@@ -156,3 +157,19 @@ def test_parse_number_infinity():
 def test_parse_number_infinity_mixed_case():
     with pytest.raises(ValueError, match="Bukan angka"):
         parse_number("Infinity")
+
+def test_percentage():
+    assert percentage(25, 100) == 25.0
+
+def test_percentage_decimal():
+    assert percentage(1, 3) == pytest.approx(33.33333333333333)
+
+def test_percentage_zero_part():
+    assert percentage(0, 50) == 0.0
+
+def test_percentage_negative_part():
+    assert percentage(-10, 50) == -20.0
+
+def test_percentage_zero_total():
+    with pytest.raises(ValueError, match="Pembagian dengan nol"):
+        percentage(10, 0)
