@@ -29,6 +29,12 @@ def average(a, b):
     """Mengembalikan rata-rata dari a dan b, yaitu (a + b) / 2."""
     return (a + b) / 2
 
+def percentage(bagian, total):
+    """Mengembalikan bagian sebagai persentase dari total, yaitu bagian / total * 100."""
+    if total == 0:
+        raise ValueError("Pembagian dengan nol")
+    return bagian / total * 100
+
 def parse_number(teks):
     try:
         return int(teks)
