@@ -4,6 +4,7 @@ from calc import add, subtract, multiply, divide, power, modulo, square
 from calc import average
 from calc import parse_number
 from calc import percentage
+from calc import negate
 
 def test_add():
     assert add(2, 3) == 5
@@ -173,3 +174,15 @@ def test_percentage_negative_part():
 def test_percentage_zero_total():
     with pytest.raises(ValueError, match="Pembagian dengan nol"):
         percentage(10, 0)
+
+def test_negate():
+    assert negate(5) == -5
+
+def test_negate_positive():
+    assert negate(3) == -3
+
+def test_negate_negative():
+    assert negate(-7) == 7
+
+def test_negate_zero():
+    assert negate(0) == 0
